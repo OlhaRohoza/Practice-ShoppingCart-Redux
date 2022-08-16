@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styles from "./Product.module.css";
 
 // Redux
+import { connect } from "react-redux";
+import { addToCart } from "../../../redux/shopping/shopping-actions";
 
 const Product = ({ product }) => {
   return (
@@ -20,14 +22,14 @@ const Product = ({ product }) => {
         <p className={styles.details__price}>$ {product.price}</p>
       </div>
 
-      {/* <div className={styles.product__buttons}>
+      <div className={styles.product__buttons}>
         <Link to={`/product/${product.id}`}>
-          <button
+          {/* <button
             onClick={() => loadCurrentItem(product)}
             className={`${styles.buttons__btn} ${styles.buttons__view}`}
           >
             View Item
-          </button>
+          </button> */}
         </Link>
         <button
           onClick={() => addToCart(product.id)}
@@ -35,10 +37,15 @@ const Product = ({ product }) => {
         >
           Add To Cart
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id))
+  }
+}
 
-export default Product;
+export default connect(null, mapDispatchToProps)(Product);

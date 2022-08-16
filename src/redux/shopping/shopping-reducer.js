@@ -73,7 +73,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
                 cart: state.cart.map(item => item.id === payload.id
                     ? {
                         ...item,
-                        qty: payload.qty
+                        qty: +payload.qty
                     }
                     : item
                 )
@@ -83,7 +83,6 @@ const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentItem: payload
-
             };
 
         default:

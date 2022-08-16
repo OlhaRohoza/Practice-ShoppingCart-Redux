@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import styles from "./CartItem.module.css";
 
-import { connect } from "react-redux";
-import {
-  adjustItemQty,
-  removeFromCart,
-} from "../../../redux/Shopping/shopping-actions";
+// Redux
+import { connect } from 'react-redux';
+import { adjustQty, removeFromCart } from "../../../redux/shopping/shopping-actions";
+
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
 
-  const onChangeHandler = (e) => {
+  const handleChange = (e) => {
+    // console.log(e.target.value);
     setInput(e.target.value);
-    adjustQty(item.id, e.target.value);
-  };
+    adjustQty(item.id, e.target.value)
+  }
+
 
   return (
     <div className={styles.cartItem}>
@@ -36,7 +37,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
             id="qty"
             name="qty"
             value={input}
-            onChange={onChangeHandler}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <button
@@ -53,11 +54,11 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    adjustQty: (id, value) => dispatch(adjustItemQty(id, value)),
     removeFromCart: (id) => dispatch(removeFromCart(id)),
-  };
-};
+    adjustQty: (id, value) => dispatch(adjustQty(id, value))
+  }
+}
 
 export default connect(null, mapDispatchToProps)(CartItem);

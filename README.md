@@ -9,6 +9,6 @@
 ### Frameworks
 ![](https://img.shields.io/badge/Frameworks-React.js-yellow)
 
-- source: https://www.youtube.com/watch?v=MNs_7avLIJ4 
+- source: https://www.youtube.com/watch?v=MNs_7avLIJ4  & https://github.com/LloydJanseVanRensburg/ShoppingCart-Redux
 - a small shop with 3 items
 - Redux: ADD an Item to the cart, REMOVE an Item from the cart, ADJUST quality in the cart, DISPLAY an items

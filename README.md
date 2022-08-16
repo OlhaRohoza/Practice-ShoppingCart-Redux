@@ -11,4 +11,4 @@
 
 - source: https://www.youtube.com/watch?v=MNs_7avLIJ4 
 - a small shop with 3 items
-- Redux: add an Item to the cart, remove an Item from the cart, adjust quality in the cart, display an items
+- Redux: ADD an Item to the cart, REMOVE an Item from the cart, ADJUST quality in the cart, DISPLAY an items

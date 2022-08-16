@@ -4,9 +4,9 @@ import styles from "./Product.module.css";
 
 // Redux
 import { connect } from "react-redux";
-import { addToCart } from "../../../redux/shopping/shopping-actions";
+import { addToCart, loadCurrentItem } from "../../../redux/shopping/shopping-actions";
 
-const Product = ({ product }) => {
+const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
     <div className={styles.product}>
 
@@ -24,12 +24,12 @@ const Product = ({ product }) => {
 
       <div className={styles.product__buttons}>
         <Link to={`/product/${product.id}`}>
-          {/* <button
+          <button
             onClick={() => loadCurrentItem(product)}
             className={`${styles.buttons__btn} ${styles.buttons__view}`}
           >
             View Item
-          </button> */}
+          </button>
         </Link>
         <button
           onClick={() => addToCart(product.id)}
@@ -44,7 +44,8 @@ const Product = ({ product }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addToCart: (id) => dispatch(addToCart(id))
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item))
   }
 }
 

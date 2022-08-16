@@ -9,14 +9,14 @@ export function addToCart(itemID) {
     };
 }
 
-export const removeFromCart = (itemID) => {
+export function removeFromCart(itemID) {
     return {
         type: actionTypes.REMOVE_FROM_CART,
         payload: {
             id: itemID
         }
-    }
-};
+    };
+}
 
 export function adjustQty(itemID, value) {
     return {
